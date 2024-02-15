@@ -1,21 +1,14 @@
-vim.opt.number = true
-vim.opt.wrap = true
-vim.cmd("let g:everforest_background = 'soft'") --contrast settings (everforest)
-vim.cmd("set background=light") --background color (everforest)
-vim.cmd("let g:everforest_better_performance = 1")
-lvim.colorscheme = "everforest"
--- lvim.transparent_window = true
 lvim.plugins={
-{
-  'wfxr/minimap.vim',
-  build = "cargo install --locked code-minimap",
-  -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
-  config = function ()
-    vim.cmd ("let g:minimap_width = 10")
-    vim.cmd ("let g:minimap_auto_start = 1")
-    vim.cmd ("let g:minimap_auto_start_win_enter = 1")
-  end,
-},
+-- {
+--   'wfxr/minimap.vim',
+--   build = "cargo install --locked code-minimap",
+--   cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+--   config = function ()
+--     vim.cmd ("let g:minimap_width = 10")
+--     vim.cmd ("let g:minimap_auto_start = 1")
+--     vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+--   end,
+-- },
   {'crispybaccoon/evergarden'},
   {"xero/miasma.nvim"},
   {"sainnhe/everforest",
@@ -48,7 +41,6 @@ lvim.plugins={
     end
   },
 
-
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -67,6 +59,23 @@ lvim.plugins={
   },
 
 }
+vim.opt.number = true
+vim.opt.wrap = true
+vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)
+vim.cmd("set background=light") --background color (everforest)
+vim.cmd("let g:everforest_better_performance = 1")
+lvim.colorscheme = "everforest"
+lvim.builtin.lualine.style = "default"
+-- lvim.builtin.alpha.dashboard.section.header.val = {
+-- [[ █ ▄███▄   ██   ███   ▄███▄   ████▄   ▄      ▄]],   ▄    
+-- █   █ █▀   ▀  █ █  █  █  █▀   ▀  █   █    █      █  
+-- ██▀▀█ ██▄▄    █▄▄█ █ ▀ ▄ ██▄▄    █   █ █   █ ██   █ 
+-- █   █ █▄   ▄▀ █  █ █  ▄▀ █▄   ▄▀ ▀████ █   █ █ █  █ 
+--    █  ▀███▀      █ ███   ▀███▀         █▄ ▄█ █  █ █ 
+--   ▀             █                       ▀▀▀  █   ██ 
+--                ▀                                    
 
+-- }
+-- lvim.transparent_window = true
 
 -- enable treesitter integration

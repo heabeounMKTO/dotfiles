@@ -1,6 +1,9 @@
-vim.opt.number = true 
+vim.opt.number = true
 vim.opt.wrap = true
-lvim.colorscheme = "evergarden"
+vim.cmd("let g:everforest_background = 'soft'") --contrast settings (everforest)
+vim.cmd("set background=light") --background color (everforest)
+vim.cmd("let g:everforest_better_performance = 1")
+lvim.colorscheme = "everforest"
 -- lvim.transparent_window = true
 lvim.plugins={
 {
@@ -15,6 +18,8 @@ lvim.plugins={
 },
   {'crispybaccoon/evergarden'},
   {"xero/miasma.nvim"},
+  {"sainnhe/everforest",
+    background="soft"},
   {
       "folke/lsp-colors.nvim",
       event = "BufRead",

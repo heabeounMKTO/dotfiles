@@ -1,5 +1,7 @@
 vim.opt.number = true 
 vim.opt.wrap = true
+lvim.colorscheme = "evergarden"
+-- lvim.transparent_window = true
 lvim.plugins={
 {
   'wfxr/minimap.vim',
@@ -11,7 +13,8 @@ lvim.plugins={
     vim.cmd ("let g:minimap_auto_start_win_enter = 1")
   end,
 },
-
+  {'crispybaccoon/evergarden'},
+  {"xero/miasma.nvim"},
   {
       "folke/lsp-colors.nvim",
       event = "BufRead",

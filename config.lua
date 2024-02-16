@@ -10,6 +10,8 @@ lvim.plugins={
 --   end,
 -- },
   {'crispybaccoon/evergarden'},
+  {'jiangmiao/auto-pairs'},
+  {'dapt4/vim-autoSurround'},
   {"xero/miasma.nvim"},
   {"sainnhe/everforest",
     background="soft"},

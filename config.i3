@@ -8,8 +8,39 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+#COLORS
+set $rosewater #f4dbd6
+set $flamingo  #f0c6c6
+set $pink      #f5bde6
+set $mauve     #c6a0f6
+set $red       #ed8796
+set $maroon    #ee99a0
+set $peach     #f5a97f
+set $yellow    #eed49f
+set $green     #a6da95
+set $teal      #8bd5ca
+set $sky       #91d7e3
+set $sapphire  #7dc4e4
+set $blue      #8aadf4
+set $lavender  #b7bdf8
+set $text      #cad3f5
+set $subtext1  #b8c0e0
+set $subtext0  #a5adcb
+set $overlay2  #939ab7
+set $overlay1  #8087a2
+set $overlay0  #6e738d
+set $surface2  #5b6078
+set $surface1  #494d64
+set $surface0  #363a4f
+set $base      #24273a
+set $mantle    #1e2030
+set $crust     #181926
+
+
 set $mod Mod4
 
+#transparent windwos
+exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
 exec feh --bg-fill '/home/hb/Downloads/364230829_950952646172985_4837837073126672030_n.jpg' 
@@ -191,6 +222,51 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+
 bar {
-        status_command i3status
-}
+  colors {
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    active_workspace   $base $text $blue
+    focused_separator  $base
+    focused_workspace  $base $base $green
+    active_workspace   $base $base $blue
+    inactive_workspace $base $base $surface1
+    urgent_workspace   $base $base $surface1
+    binding_mode       $base $base $surface1
+  }}
+
+exec --no-startup-id nm-applet
+exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id /usr/libexec/mate-panel/notification-area-applet
+exec --no-startup-id xmodmap $i3_path/xmodmap
+exec --no-startup-id parcellite
+exec --no-startup-id blueman-applet &
+exec_always --no-startup-id polybar 
+#{{{CUSTOMIZATION
+
+# Gaps size
+for_window [class="^.*"] border outline 
+
+#for_window [class="^.*"] border none # Remove border outline
+gaps inner 8 
+gaps outer 8
+gaps top 8 
+
+# Remove title bar text
+default_border pixel 1
+default_floating_border pixel 1
+
+# class                 border  backgr. text    indicator
+client.focused          #4C566A #4C566A #ffffff #4C566A
+client.unfocused        #2e3440 #1f222d #888888 #1f222d
+client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+client.placeholder      #2e3440 #1f222d #888888 #1f222d
+client.urgent           #900000 #900000 #ffffff #900000
+
+client.background       #242424
+
+
+#}}}

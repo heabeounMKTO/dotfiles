@@ -61,10 +61,14 @@ lvim.plugins={
   },
 
 }
+
+
+
+
 vim.opt.number = true
 vim.opt.wrap = true
 vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)
-vim.cmd("set background=light") --background color (everforest)
+vim.cmd("set background=dark") --background color (everforest)
 vim.cmd("let g:everforest_better_performance = 1")
 lvim.colorscheme = "everforest"
 lvim.builtin.lualine.style = "default"

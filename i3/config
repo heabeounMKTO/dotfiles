@@ -230,8 +230,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 
-#sleep key
+#keybind sleep key
 bindsym Control+Mod1+l exec "i3lock -c 000000"
+
+# auto lock the screen
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
+
 
 # bar {
 #   colors {

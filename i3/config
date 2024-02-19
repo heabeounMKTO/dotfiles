@@ -43,9 +43,9 @@ set $mod Mod4
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hb/Downloads/364230829_950952646172985_4837837073126672030_n.jpg' 
+exec feh --bg-fill '/home/hbpopos/Downloads/tt.jpg' 
 # for sets main display DP-2 to primary
-exec xrandr --output DP-2 --primary --left-of DP-4
+exec xrandr --output HDMI-0 --primary --left-of DP-2
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -73,10 +73,10 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -98,6 +98,11 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+#volume 
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
 # change focus
 bindsym $mod+j focus left
@@ -186,6 +191,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -224,19 +230,22 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 
-bar {
-  colors {
-    background         $base
-    statusline         $text
-    focused_statusline $text
-    active_workspace   $base $text $blue
-    focused_separator  $base
-    focused_workspace  $base $base $green
-    active_workspace   $base $base $blue
-    inactive_workspace $base $base $surface1
-    urgent_workspace   $base $base $surface1
-    binding_mode       $base $base $surface1
-  }}
+#sleep key
+bindsym Control+Mod1+l exec "i3lock -c 000000"
+
+# bar {
+#   colors {
+#     background         $base
+#     statusline         $text
+#     focused_statusline $text
+#     active_workspace   $base $text $blue
+#     focused_separator  $base
+#     focused_workspace  $base $base $green
+#     active_workspace   $base $base $blue
+#     inactive_workspace $base $base $surface1
+#     urgent_workspace   $base $base $surface1
+#     binding_mode       $base $base $surface1
+#   }}
 
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-volume-control-applet

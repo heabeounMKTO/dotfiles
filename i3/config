@@ -43,7 +43,7 @@ set $mod Mod4
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hbpopos/Downloads/tt.jpg' 
+exec feh --bg-fill '/home/hbpopos/Downloads/tt2.png' 
 # for sets main display DP-2 to primary
 exec xrandr --output HDMI-0 --primary --left-of DP-2
 
@@ -101,7 +101,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 
 #volume 
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 1%
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 1%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 1%+
 
 # change focus

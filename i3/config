@@ -35,15 +35,13 @@ set $surface0  #363a4f
 set $base      #24273a
 set $mantle    #1e2030
 set $crust     #181926
-
-
 set $mod Mod4
 
 #transparent windwos
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hbpopos/Downloads/tt2.png' 
+exec feh --bg-fill '/home/hbpopos/Downloads/sat.jpg' 
 # for sets main display DP-2 to primary
 exec xrandr --output HDMI-0 --primary --left-of DP-2
 
@@ -257,7 +255,7 @@ exec --no-startup-id /usr/libexec/mate-panel/notification-area-applet
 exec --no-startup-id xmodmap $i3_path/xmodmap
 exec --no-startup-id parcellite
 exec --no-startup-id blueman-applet &
-exec_always --no-startup-id polybar 
+exec_always --no-startup-id ~/.config/polybar/hb/launch.sh 
 #{{{CUSTOMIZATION
 
 # Gaps size

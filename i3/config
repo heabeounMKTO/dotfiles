@@ -41,7 +41,7 @@ set $mod Mod4
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hbpopos/Downloads/sat.jpg' 
+exec feh --bg-fill '/home/hb/Downloads/wall3.jpg' 
 # for sets main display DP-2 to primary
 exec xrandr --output HDMI-0 --primary --left-of DP-2
 
@@ -69,6 +69,17 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
+#print screen lmaoo
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -84,7 +95,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty --config-file ~/.config/alacritty/alacritty.toml 
 
 # kill focused window
 bindsym $mod+Shift+q kill

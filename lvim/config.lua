@@ -9,6 +9,7 @@ lvim.plugins={
 --     vim.cmd ("let g:minimap_auto_start_win_enter = 1")
 --   end,
 -- },
+  {'nightsense/strawberry', name="strawberry"},
   {
     "saecki/crates.nvim",
     version = "v0.3.0",
@@ -91,7 +92,7 @@ lvim.plugins={
  {
     'junegunn/vim-easy-align'
   },
-{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+{ "catppuccin/nvim", name = "catppuccin", priority=1000},
   {
   'mrcjkb/rustaceanvim',
   version = '^4', -- Recommended
@@ -169,13 +170,16 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "rust",
   "toml",
+  "python"
 }
+-- vim.cmd.colorscheme "strawberry-light"
 lvim.builtin.project.manual_mode = true
 vim.opt.number = true
 vim.opt.wrap = true
 -- vim.cmd("let g:mkdp_browser = '/usr/bin/google-chrome'")
 -- vim.cmd("let g:mkdp_open_ip = 'localhost:8894'")
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
+lvim.colorscheme = "strawberry-light"
 -- vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)
 -- vim.cmd("set background=dark") --background color (everforest)
 -- vim.cmd("let g:everforest_better_performance = 1")
@@ -230,10 +234,6 @@ lvim.builtin.lualine.style = "default"
 -- }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
-
-
-
-
       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣤⣴⣦⣶⣶⣶⣶⣦⣦⣤⣤⣄⣀⣀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⡶⠿⠟⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠛⠛⠻⠶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡾⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⣦⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],

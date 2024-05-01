@@ -1,2 +1,8 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/catppuccin-latte.toml"]
+import = ["~/.config/alacritty/themes/hb2.toml"]
+
+[window]
+blur = true
+
+[font]
+size = 10.0

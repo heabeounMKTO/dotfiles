@@ -68,9 +68,9 @@ white = "#BAC2DE"
 
 
 [font]
-normal = {family = "JetBrainsMonoNerdFont", style="Bold"}
-bold = {family="JetBrainsMonoNerdFont", style="BoldItalic"}
-italic = {family="JetBrainsMonoNerdFont", style="Italic"}
+normal = {family = "JetBrainsMono", style="Bold"}
+bold = {family="JetBrainsMono", style="BoldItalic"}
+italic = {family="JetBrainsMono", style="Italic"}
 size = 12 
 
 [[colors.indexed_colors]]

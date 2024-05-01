@@ -41,7 +41,7 @@ set $mod Mod4
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hb/Downloads/wall3.jpg' 
+exec feh --bg-fill '/home/hbpopos/Downloads/kirby.jpg' 
 # for sets main display DP-2 to primary
 exec xrandr --output HDMI-0 --primary --left-of DP-2
 
@@ -69,8 +69,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -85,9 +83,10 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-# start a terminal
-bindsym $mod+Return exec alacritty --config-file ~/.config/alacritty/alacritty.toml 
+bindsym $mod+Shift+o exec dolphin
 
+# start a terminal
+bindsym $mod+Return exec alacritty --config-file ~/.config/alacritty/alacritty.toml && cd $(pwd)
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -259,7 +258,7 @@ exec --no-startup-id parcellite
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id ~/.config/polybar/hb/launch.sh 
 #{{{CUSTOMIZATION
-
+exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 # Gaps size
 for_window [class="^.*"] border outline 
 

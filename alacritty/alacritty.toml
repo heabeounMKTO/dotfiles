@@ -1,5 +1,5 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/hb2.toml"]
+import = ["~/.config/alacritty/themes/hb3.toml"]
 
 [window]
 blur = true

@@ -1,27 +1,27 @@
-# Colors (PaperColor - Light)
-
 # Default colors
 [colors.primary]
-background = '#e791bf'
-foreground = '#444444'
+background = '#EAEFF2'
+foreground = '#A16AE8'
 
 
 [colors.cursor]
-text = '#FFFFFF'
+text = '#EAEFF2'
 cursor = '#444444'
+
 [colors.vi_mode_cursor]
 text = "#1E1E2E"
 cursor = "#B4BEFE"
+
 # Normal colors
 [colors.normal]
-black   = '#eeeeee'
+black   = '#EAEFF2'
 red     = '#af0000'
-green   = '#008700'
+green   = '#00B1B0'
 yellow  = '#5f8700'
-blue    = '#0087af'
+blue    = '#FB6B90'
 magenta = '#878787'
 cyan    = '#005f87'
-white   = '#444444'
+white   = '#FFFFFF'
 
 # Bright colors
 [colors.bright]

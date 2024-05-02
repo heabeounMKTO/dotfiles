@@ -1,0 +1,45 @@
+# Colors (PaperColor - Light)
+
+# Default colors
+[colors.primary]
+background = '#1E1E3F'
+foreground = '#FFFFFF'
+
+
+# Normal colors
+[colors.normal]
+black = '#000000'
+red = '#D52822'
+green = '#3DB72A'
+yellow = '#FAD000'
+blue = '#6943FF'
+magenta = '#FF628C'
+cyan = '#9EFFFF'
+white = '#DBDBE0'
+
+# Bright colors
+[colors.bright]
+black = '#5C5C61'
+red = '#FF000D'
+green = '#3AD900'
+yellow = '#FAD000'
+blue = '#6943FF'
+magenta = '#FF628C'
+cyan = '#9EFFFF'
+white = '#FFFFFF'
+
+
+[font]
+normal = {family = "MesloLGS NF", style="Bold"}
+bold = {family="MesloLGS NF", style="BoldItalic"}
+italic = {family="MesloLGS NF", style="Italic"}
+size = 12 
+
+[[colors.indexed_colors]]
+index = 16
+color = "#FAB387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#F5E0DC"
+

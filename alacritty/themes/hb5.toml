@@ -1,7 +1,7 @@
 # Default colors
 [colors.primary]
-background = '#EAEFF2'
-foreground = '#A16AE8'
+background = '#281C2D'
+foreground = '#B4FEE7'
 
 
 [colors.cursor]
@@ -21,7 +21,7 @@ yellow  = '#5f8700'
 blue    = '#FB6B90'
 magenta = '#878787'
 cyan    = '#005f87'
-white   = '#FFFFFF'
+white   = '#C55FFC'
 
 # Bright colors
 [colors.bright]
@@ -36,9 +36,9 @@ white   = '#005f87'
 
 
 [font]
-normal = {family = "MonaspiceNeNerdFont", style="Bold"}
-bold = {family="MonaspiceNeNerdFont", style="Bold"}
-italic = {family="MonaspiceRnNerdFont", style="Bold"}
+normal = {family = "MesloLGS NF", style="Bold"}
+bold = {family="MesloLGS NF", style="BoldItalic"}
+italic = {family="MesloLGS NF", style="Italic"}
 size = 12 
 
 [[colors.indexed_colors]]

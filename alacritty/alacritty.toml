@@ -1,8 +1,8 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/hb3.toml"]
+import = ["~/.config/alacritty/themes/mellow.toml"]
 
-[window]
-blur = true
+# [window]
+# blur = true
 
 [font]
 size = 10.0

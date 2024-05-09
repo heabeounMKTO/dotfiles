@@ -10,6 +10,7 @@ lvim.plugins={
 --   end,
 -- },
   {'nightsense/strawberry', name="strawberry"},
+  {'mellow-theme/mellow.nvim', name="mellow"},
   {
     "saecki/crates.nvim",
     version = "v0.3.0",
@@ -179,7 +180,9 @@ vim.opt.wrap = true
 -- vim.cmd("let g:mkdp_browser = '/usr/bin/google-chrome'")
 -- vim.cmd("let g:mkdp_open_ip = 'localhost:8894'")
 -- vim.cmd.colorscheme "catppuccin"
-lvim.colorscheme = "strawberry-light"
+vim.g.mellow_italic_functions = true
+-- vim.g.mellow_bold_functions = true
+lvim.colorscheme = "mellow"
 -- vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)
 -- vim.cmd("set background=dark") --background color (everforest)
 -- vim.cmd("let g:everforest_better_performance = 1")

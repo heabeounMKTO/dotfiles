@@ -11,6 +11,11 @@ lvim.plugins={
 -- },
   {'nightsense/strawberry', name="strawberry"},
   {'mellow-theme/mellow.nvim', name="mellow"},
+  -- {'edluffy/hologram.nvim',
+  --   config =  require('hologram').setup{auto_display = true
+  --     -- WIP automatic markdown image display, may be prone to breaking
+  --   }
+  -- },
   {
     "saecki/crates.nvim",
     version = "v0.3.0",
@@ -34,6 +39,7 @@ lvim.plugins={
     end,
   },
 {'nvim-lua/plenary.nvim'},
+{'andweeb/presence.nvim'},
 -- install without yarn or npm
 {
     "iamcco/markdown-preview.nvim",
@@ -94,11 +100,11 @@ lvim.plugins={
     'junegunn/vim-easy-align'
   },
 { "catppuccin/nvim", name = "catppuccin", priority=1000},
-  {
-  'mrcjkb/rustaceanvim',
-  version = '^4', -- Recommended
-  ft = { 'rust' },
-},
+--   {
+--   'mrcjkb/rustaceanvim',
+--   version = '^4', -- Recommended
+--   ft = { 'rust' },
+-- },
 }
 pcall(function()
   require("rust-tools").setup {
@@ -166,6 +172,22 @@ pcall(function()
   }
 end)
 
+
+-- vim.g.rustaceanvim = {
+--     server = {
+--       cmd = function()
+-- 	local mason_registry = require('mason-registry')
+-- 	local ra_binary = mason_registry.is_installed('rust-analyzer') 
+-- 	  -- This may need to be tweaked, depending on the operating system.
+-- 	  and mason_registry.get_package('rust-analyzer'):get_install_path() .. "/rust-analyzer"
+-- 	  or "rust-analyzer"
+-- 	return { ra_binary } -- You can add args to the list, such as '--log-file'
+--       end,
+--     },
+-- }
+
+
+
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 lvim.builtin.treesitter.ensure_installed = {
   "lua",
@@ -181,6 +203,7 @@ vim.opt.wrap = true
 -- vim.cmd("let g:mkdp_open_ip = 'localhost:8894'")
 -- vim.cmd.colorscheme "catppuccin"
 vim.g.mellow_italic_functions = true
+vim.g.mellow_bold_functions = true
 -- vim.g.mellow_bold_functions = true
 lvim.colorscheme = "mellow"
 -- vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)

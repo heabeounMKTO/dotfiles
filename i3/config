@@ -41,7 +41,7 @@ set $mod Mod4
 exec_always --no-startup-id picom  -b --config ~/.config/picom.conf
 
 # set desktop background
-exec feh --bg-fill '/home/hbpopos/Downloads/kirby.jpg' 
+exec_always randwall 
 # for sets main display DP-2 to primary
 exec xrandr --output HDMI-0 --primary --left-of DP-2
 
@@ -87,11 +87,13 @@ bindsym $mod+Shift+o exec dolphin
 
 # start a terminal
 bindsym $mod+Return exec alacritty --config-file ~/.config/alacritty/alacritty.toml && cd $(pwd)
+# bindsym $mod+Return exec st 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run 
+# bindsym $mod+d exec --no-startup-id rofi -show run 
+bindsym $mod+d exec --no-startup-id dmenu_run 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -228,12 +230,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-
 #keybind sleep key
 bindsym Control+Mod1+l exec "i3lock -c 000000"
 
-# auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
+# AUTO LOCK THE SCREEN
+# exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
 
 # bar {
@@ -257,15 +258,38 @@ exec --no-startup-id xmodmap $i3_path/xmodmap
 exec --no-startup-id parcellite
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id ~/.config/polybar/hb/launch.sh 
+# exec_always --no-startup-id slstatus & 
+
 #{{{CUSTOMIZATION
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 # Gaps size
 for_window [class="^.*"] border outline 
+# gesture swipe up 3	xdotool key super+f
+# gesture swipe down 3	xdotool key super+e
+# gesture swipe up 4	xdotool key super+Up
+# gesture swipe down 4	xdotool key super+Down
 
+# gesture swipe right 3	xdotool key ctrl+Tab
+# gesture swipe left 3	xdotool key ctrl+shift+Tab
+
+# gesture swipe right 4	xdotool key super+Right
+# gesture swipe left 4	xdotool key super+Left
+
+# gesture pinch in 3	xdotool key super+w
+# gesture pinch out 3	xdotool key super+a
+
+# gesture pinch in 4     xdotool key super+w
+# gesture pinch out 4    xdotool key super+a
+
+# gesture pinch in 5     xdotool key super+w
+# gesture pinch out 5    xdotool key super+a
+
+# gesture pinch out 2     xdotool key ctrl+KP_Add
+# gesture pinch in 2    xdotool key ctrl+KP_Subtract
 #for_window [class="^.*"] border none # Remove border outline
-gaps inner 8 
-gaps outer 8
-gaps top 8 
+gaps inner 2 
+gaps outer 2 
+gaps top 2 
 
 # Remove title bar text
 default_border pixel 1

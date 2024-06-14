@@ -1,0 +1,34 @@
+[Default Applications]
+text/html=userapp-Firefox-875NO2.desktop
+x-scheme-handler/http=userapp-Firefox-875NO2.desktop
+x-scheme-handler/https=userapp-Firefox-875NO2.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/chrome=userapp-Firefox-875NO2.desktop
+application/x-extension-htm=userapp-Firefox-875NO2.desktop
+application/x-extension-html=userapp-Firefox-875NO2.desktop
+application/x-extension-shtml=userapp-Firefox-875NO2.desktop
+application/xhtml+xml=userapp-Firefox-875NO2.desktop
+application/x-extension-xhtml=userapp-Firefox-875NO2.desktop
+application/x-extension-xht=userapp-Firefox-875NO2.desktop
+
+[Added Associations]
+application/vnd.debian.binary-package=com.github.donadigo.eddy.desktop;
+video/mp4=vlc.desktop;
+text/html=org.gnome.gedit.desktop;userapp-Firefox-875NO2.desktop;
+video/quicktime=vlc.desktop;
+audio/flac=vlc.desktop;
+audio/mpeg=vlc.desktop;
+application/x-shellscript=nautilus-autorun-software.desktop;
+audio/x-pn-audibleaudio=org.gnome.FileRoller.desktop;
+image/png=xfi.desktop;
+x-scheme-handler/http=userapp-Firefox-875NO2.desktop;
+x-scheme-handler/https=userapp-Firefox-875NO2.desktop;
+x-scheme-handler/chrome=userapp-Firefox-875NO2.desktop;
+application/x-extension-htm=userapp-Firefox-875NO2.desktop;
+application/x-extension-html=userapp-Firefox-875NO2.desktop;
+application/x-extension-shtml=userapp-Firefox-875NO2.desktop;
+application/xhtml+xml=userapp-Firefox-875NO2.desktop;
+application/x-extension-xhtml=userapp-Firefox-875NO2.desktop;
+application/x-extension-xht=userapp-Firefox-875NO2.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=google-chrome.desktop;

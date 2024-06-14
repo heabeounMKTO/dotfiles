@@ -1,0 +1,13 @@
+[/home/hbpopos/.local/share/Trash]
+Days=7
+LimitReachedAction=0
+Percent=10
+UseSizeLimit=false
+UseTimeLimit=false
+
+[/media/hbpopos/penisf/.Trash-1000]
+Days=7
+LimitReachedAction=0
+Percent=10
+UseSizeLimit=false
+UseTimeLimit=false

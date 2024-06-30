@@ -1,0 +1,38 @@
+[CompactMode]
+FontWeight=50
+
+[DetailsMode]
+FontWeight=50
+
+[General]
+Version=201
+ViewPropsTimestamp=2024,4,4,10,16,9.154
+
+[IconsMode]
+FontFamily=Noto Mono
+FontWeight=50
+PreviewSize=256
+UseSystemFont=false
+
+[KPropertiesDialog]
+HDMI-0 DP-2 Height 1920x1080=515
+HDMI-0 DP-2 Width 1920x1080=520
+
+[MainWindow]
+DP-2 Height 1920x1080=1030
+DP-2 Width 1920x1080=949
+DP-2 XPosition 1920x1080=963
+DP-2 YPosition 1920x1080=42
+HDMI-0 DP-2 Height 1920x1080=1030
+HDMI-0 DP-2 Width 1920x1080=949
+HDMI-0 DP-2 XPosition 1920x1080=644
+HDMI-0 DP-2 YPosition 1920x1080=42
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[Open-with settings]
+CompletionMode=1
+History=xar,archi
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,windowsexethumbnail,windowsimagethumbnail,mltpreview,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs

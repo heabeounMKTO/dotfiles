@@ -28,10 +28,10 @@ yellow = "#f0c5a9"
 
 
 [font]
-normal = {family = "MonaspiceNeNerdFont", style="Bold"}
-bold = {family="MonaspiceNeNerdFont", style="Bold"}
-italic = {family="MonaspiceRnNerdFont", style="Bold"}
-size = 12 
+normal = {family = "ZedMono Nerd Font", style="Bold"}
+bold = {family="ZedMono Nerd Font", style="Extrabold"}
+italic = {family="ZedMono Nerd Font", style="Italic"}
+size = 18 
 
 [[colors.indexed_colors]]
 index = 16

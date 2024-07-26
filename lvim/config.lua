@@ -17,6 +17,8 @@ lvim.plugins={
 --     vim.cmd ("let g:minimap_auto_start_win_enter = 1")
 --   end,
 -- },
+  { "rose-pine/neovim", name = "rose-pine" },
+
   {'nightsense/strawberry', name="strawberry"},
   {'mellow-theme/mellow.nvim', name="mellow"},
   -- {'edluffy/hologram.nvim',
@@ -231,6 +233,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "python"
 }
 -- vim.cmd.colorscheme "strawberry-light"
+lvim.colorscheme = "rose-pine-dawn"
+
 lvim.builtin.project.manual_mode = true
 vim.opt.number = true
 vim.opt.wrap = true
@@ -240,13 +244,13 @@ vim.opt.wrap = true
 vim.g.mellow_italic_functions = true
 vim.g.mellow_bold_functions = true
 -- vim.g.mellow_bold_functions = true
-lvim.colorscheme = "mellow"
+-- lvim.colorscheme = "mellow"
 -- vim.cmd("let g:everforest_background = 'hard'") --contrast settings (everforest)
 -- vim.cmd("set background=dark") --background color (everforest)
 -- vim.cmd("let g:everforest_better_performance = 1")
 -- lvim.colorscheme = "everforest"
 -- lvim.colorscheme = "everforest"
-lvim.builtin.lualine.style = "default"
+-- lvim.builtin.lualine.style = "default"
 -- lvim.builtin.alpha.dashboard.section.header.val = {
 -- [[                                                                                    ...        ]],              [[                                                                            .,:loxkO00K0Oko:.   ]],
 -- [[                                                                    .':ox0XWMMMMMMMMMMMMMW0:  ]],

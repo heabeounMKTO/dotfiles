@@ -1,3 +1,4 @@
+-- Read the docs: https://www.lunarvim.org/docs/configuration
 -- Example configs: https://github.com/LunarVim/starter.lvim
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
@@ -6,8 +7,25 @@
 --
 
 lvim.plugins={
+-- {
+--   'wfxr/minimap.vim',
+--   build = "cargo install --locked code-minimap",
+--   cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+--   config = function ()
+--     vim.cmd ("let g:minimap_width = 10")
+--     vim.cmd ("let g:minimap_auto_start = 1")
+--     vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+--   end,
+-- },
   { "rose-pine/neovim", name = "rose-pine" },
-
+{
+    'ggml-org/llama.vim',
+    init = function()
+        vim.g.llama_config = {
+            endpoint="http://192.168.231.52:9997/infill"
+        }
+    end,
+},
   {'nightsense/strawberry', name="strawberry"},
   {'mellow-theme/mellow.nvim', name="mellow"},
   -- {'edluffy/hologram.nvim',
@@ -15,6 +33,31 @@ lvim.plugins={
   --     -- WIP automatic markdown image display, may be prone to breaking
   --   }
   -- },
+{
+  "folke/twilight.nvim",
+  opts = {
+  dimming = {
+    alpha = 0.2, -- amount of dimming
+    -- we try to get the foreground from the highlight groups or fallback color
+    color = { "Normal", "#ffffff" },
+    term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
+    inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+  },
+  context = 40, -- amount of lines we will try to show around the current line
+  treesitter = true, -- use treesitter when available for the filetype
+  -- treesitter is used to automatically expand the visible text,
+  -- but you can further control the types of nodes that should always be fully expanded
+  expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+    "function",
+    "method",
+    "table",
+    "if_statement",
+  },
+  exclude = {}, -- exclude these filetypes
+  }
+},
+
+
   {
     "saecki/crates.nvim",
     version = "v0.3.0",
@@ -40,12 +83,12 @@ lvim.plugins={
   },
 {'nvim-lua/plenary.nvim'},
 -- install without yarn or npm
--- {
---     "iamcco/markdown-preview.nvim",
---     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
---     ft = { "markdown" },
---     build = function() vim.fn["mkdp#util#install"]() end,
--- },
+{
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+},
 {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
 {'nvim-telescope/telescope.nvim'},
   {'crispybaccoon/evergarden'},
@@ -62,22 +105,6 @@ lvim.plugins={
     "folke/lsp-colors.nvim",
     event = "BufRead",
   },
-
-  {
-      "zenbones-theme/zenbones.nvim",
-      -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-      -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-      -- In Vim, compat mode is turned on as Lush only works in Neovim.
-      dependencies = "rktjmp/lush.nvim",
-      lazy = false,
-      priority = 1000,
-      -- you can set set configuration options here
-      -- config = function()
-      --     vim.g.zenbones_darken_comments = 45
-      --     vim.cmd.colorscheme('zenbones')
-      -- end
-  },
-
   {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
@@ -142,6 +169,11 @@ lvim.plugins={
     'junegunn/vim-easy-align'
   },
 { "catppuccin/nvim", name = "catppuccin", priority=1000},
+--   {
+--   'mrcjkb/rustaceanvim',
+--   version = '^4', -- Recommended
+--   ft = { 'rust' },
+-- },
 }
 pcall(function()
   require("rust-tools").setup {
@@ -210,20 +242,37 @@ pcall(function()
 end)
 
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust-analyzer" })
--- lvim.builtin.treesitter.ensure_installed = {
---   "lua",
---   "rust",
---   "toml",
---   "python"
+-- vim.g.rustaceanvim = {
+--     server = {
+--       cmd = function()
+-- 	local mason_registry = require('mason-registry')
+-- 	local ra_binary = mason_registry.is_installed('rust-analyzer') 
+-- 	  -- This may need to be tweaked, depending on the operating system.
+-- 	  and mason_registry.get_package('rust-analyzer'):get_install_path() .. "/rust-analyzer"
+-- 	  or "rust-analyzer"
+-- 	return { ra_binary } -- You can add args to the list, such as '--log-file'
+--       end,
+--     },
 -- }
+
+
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+lvim.builtin.treesitter.ensure_installed = {
+  "lua",
+  "rust",
+  "toml",
+  "python"
+}
 -- vim.cmd.colorscheme "strawberry-light"
--- lvim.colorscheme = "rose-pine-dawn"
-lvim.colorscheme="zenbones"
-vim.opt.background="light"
+lvim.colorscheme = "rose-pine-moon"
+
 lvim.builtin.project.manual_mode = true
 vim.opt.number = true
 vim.opt.wrap = true
+-- vim.cmd("let g:mkdp_browser = '/usr/bin/google-chrome'")
+-- vim.cmd("let g:mkdp_open_ip = 'localhost:8894'")
+-- vim.cmd.colorscheme "catppuccin"
 vim.g.mellow_italic_functions = true
 vim.g.mellow_bold_functions = true
 -- vim.g.mellow_bold_functions = true
@@ -252,34 +301,34 @@ vim.g.mellow_bold_functions = true
 -- [[                                   vscode , but with extra steps                           ]],    
 -- }
 
--- lvim.builtin.alpha.dashboard.section.header.val = {
--- [[                                         heabeoun's LunarVim                   ]],                                                                                                 
--- [[                                         ███▄ ▄███▓ ██ ▄█▀▄▄▄█████▓ ▒█████     ]],                           
--- [[                            /(           ▓██▒▀█▀ ██▒ ██▄█▒ ▓  ██▒ ▓▒▒██▒  ██▒  ]],                         
--- [[                          #%%(((&        ▓██    ▓██░▓███▄░ ▒ ▓██░ ▒░▒██░  ██▒  ]],                         
--- [[                          ////((/        ▒██    ▒██ ▓██ █▄ ░ ▓██▓ ░ ▒██   ██░  ]],                       
--- [[                          (#%%#%         ▒██▒   ░██▒▒██▒ █▄  ▒██▒ ░ ░ ████▓▒░  ]],                       
--- [[                        *%%%&@#(         ░ ▒░   ░  ░▒ ▒▒ ▓▒  ▒ ░░   ░ ▒░▒░▒░   ]],                        
--- [[                       #%&&&%%&%&&*      ░  ░      ░░ ░▒ ▒░    ░      ░ ▒ ▒░   ]],                         
--- [[                       *#%%@&&&&@@@%%    ░      ░   ░ ░░ ░   ░      ░ ░ ░ ▒    ]],                        
--- [[                       /&&##&&&&@@@@%%#/.       ░   ░  ░                ░ ░    ]],
--- [[                 ,*//( /%&&&#,/(##(/(.,.,  ,,                                  ]],
--- [[                 &#,.@&%#&&&&&%%&%@@@@@@*..(%  .,                              ]],
--- [[                 ,%&%%/%&##%(#%%&((&@@%/(#//(%&#.*/                            ]],
--- [[                ,,,*(#&#%%#(///&@%%#(((////#@@&///(((((#*                      ]],
--- [[             .,/#,,,*%#((&&#((*,*&%#((&%%&&@#//(&@@%.*//*,                     ]],
--- [[            %.   #**,*(%&&@@@#////@@&%&@@@@@@%#@@%#,,(#%(.*(/*                 ]],
--- [[             &@&@&##%%%&@@@@@@&##/@@@&&@@@@@@@@# .(%, %@&.@#*(#                ]],
--- [[            (((((#((#%&@@@&&&@(((@@@#%@@@@@@@@&.* #&.   (@@&*(#                ]],
--- [[              #&&&#(#(###@&##*,/((#&%&@@@@@@@@@#.(%(*,* ..,./,(&               ]],               
--- [[                **#@@@@((#&&@@@*,/((&@@@@@@@@@&&%../*,/*.*///,#%%              ]],
--- [[                &(&%@@@(((@#&/*(%%*/(/.(@@@@&/*@%* .,///, ,.#%#                ]],
--- [[                 ,@@@*  %%(/((,/#(&(**#&(&@#      *#*   ,(#&*                  ]],
--- [[                         &#&#(&(*((#&@&*                                       ]],     
--- [[                        /#%%&%####@@/                                          ]],
--- [[                             ,&&&@(  ]]                                 
---                                                                       
--- }
+lvim.builtin.alpha.dashboard.section.header.val = {
+[[                                         heabeoun's LunarVim                   ]],                                                                                                 
+[[                                         ███▄ ▄███▓ ██ ▄█▀▄▄▄█████▓ ▒█████     ]],                           
+[[                            /(           ▓██▒▀█▀ ██▒ ██▄█▒ ▓  ██▒ ▓▒▒██▒  ██▒  ]],                         
+[[                          #%%(((&        ▓██    ▓██░▓███▄░ ▒ ▓██░ ▒░▒██░  ██▒  ]],                         
+[[                          ////((/        ▒██    ▒██ ▓██ █▄ ░ ▓██▓ ░ ▒██   ██░  ]],                       
+[[                          (#%%#%         ▒██▒   ░██▒▒██▒ █▄  ▒██▒ ░ ░ ████▓▒░  ]],                       
+[[                        *%%%&@#(         ░ ▒░   ░  ░▒ ▒▒ ▓▒  ▒ ░░   ░ ▒░▒░▒░   ]],                        
+[[                       #%&&&%%&%&&*      ░  ░      ░░ ░▒ ▒░    ░      ░ ▒ ▒░   ]],                         
+[[                       *#%%@&&&&@@@%%    ░      ░   ░ ░░ ░   ░      ░ ░ ░ ▒    ]],                        
+[[                       /&&##&&&&@@@@%%#/.       ░   ░  ░                ░ ░    ]],
+[[                 ,*//( /%&&&#,/(##(/(.,.,  ,,                                  ]],
+[[                 &#,.@&%#&&&&&%%&%@@@@@@*..(%  .,                              ]],
+[[                 ,%&%%/%&##%(#%%&((&@@%/(#//(%&#.*/                            ]],
+[[                ,,,*(#&#%%#(///&@%%#(((////#@@&///(((((#*                      ]],
+[[             .,/#,,,*%#((&&#((*,*&%#((&%%&&@#//(&@@%.*//*,                     ]],
+[[            %.   #**,*(%&&@@@#////@@&%&@@@@@@%#@@%#,,(#%(.*(/*                 ]],
+[[             &@&@&##%%%&@@@@@@&##/@@@&&@@@@@@@@# .(%, %@&.@#*(#                ]],
+[[            (((((#((#%&@@@&&&@(((@@@#%@@@@@@@@&.* #&.   (@@&*(#                ]],
+[[              #&&&#(#(###@&##*,/((#&%&@@@@@@@@@#.(%(*,* ..,./,(&               ]],               
+[[                **#@@@@((#&&@@@*,/((&@@@@@@@@@&&%../*,/*.*///,#%%              ]],
+[[                &(&%@@@(((@#&/*(%%*/(/.(@@@@&/*@%* .,///, ,.#%#                ]],
+[[                 ,@@@*  %%(/((,/#(&(**#&(&@#      *#*   ,(#&*                  ]],
+[[                         &#&#(&(*((#&@&*                                       ]],     
+[[                        /#%%&%####@@/                                          ]],
+[[                             ,&&&@(  ]]                                 
+                                                                      
+}
 
 -- lvim.builtin.alpha.dashboard.section.header.val = {
 --       [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣤⣴⣦⣶⣶⣶⣶⣦⣦⣤⣤⣄⣀⣀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
@@ -317,30 +366,29 @@ vim.g.mellow_bold_functions = true
 -- }
 
 
-lvim.builtin.alpha.dashboard.section.header.val = {
-[[                                       ░░░░░                          ]],
-[[                                     ░░░░░░░░░░                       ]],
-[[                                   ░░░░░░░░░░░░░                      ]],
-[[                                  ░░░░░░░░░░░░░░░                     ]],
-[[                                 ░░░░░░░░░░░░░░░░                     ]],
-[[                  ░░░░░░░░░░░   ░░░░░░░░░░░░░░░░                      ]],
-[[                 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                       ]],
-[[                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░░░░░░░░             ]],
-[[                ░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░░░░░            ]],
-[[                ░░░░░░░░░░░░░░░░          ░░░░░░░░░░░░░░░░░       I got a new boat, you should come with    ]],
-[[                 ░░░░░░░░░░░░░░            ░░░░░░░░░░░░░░░          I got a section for your luggage   ]],
-[[                   ░░░░░░░░░░░              ░░░░░░░░░░░░░           Bring some fiction and a nightlight  ]],
-[[                      ░░░░░░░░              ░░░░░░░░░░░            Record player and your top five   ]],
-[[                    ░░░░░░░░░░░             ░░░░░░░               Where we goin'? We should get lost    ]],
-[[                 ░░░░░░░░░░░░░░░          ░░░░░░░░░░               No more questions, let the wharf talk,   ]],
-[[               ░░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░                ]],
-[[              ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░              ]],
-[[             ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░             ]],
-[[            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░            ]],
-[[           ░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░░░░░░░░░░░░░            ]],
-[[            ░░░░░░░░░░░░░░░░░░░░       ░░░░░░░░░░░░░░░░░░░            ]],
-[[             ░░░░░░░░░░░░░░░░░            ░░░░░░░░░░░░░░░             ]],
-[[              ░░░░░░░░░░░░░░                ░░░░░░░░░░░               ]],
-[[                 ░░░░░░░                                              ]],
-}
-
+-- lvim.builtin.alpha.dashboard.section.header.val = {
+-- [[                                       ░░░░░                          ]],
+-- [[                                     ░░░░░░░░░░                       ]],
+-- [[                                   ░░░░░░░░░░░░░                      ]],
+-- [[                                  ░░░░░░░░░░░░░░░                     ]],
+-- [[                                 ░░░░░░░░░░░░░░░░                     ]],
+-- [[                  ░░░░░░░░░░░   ░░░░░░░░░░░░░░░░                      ]],
+-- [[                 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                       ]],
+-- [[                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░░░░░░░░             ]],
+-- [[                ░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░░░░░            ]],
+-- [[                ░░░░░░░░░░░░░░░░          ░░░░░░░░░░░░░░░░░       I got a new boat, you should come with    ]],
+-- [[                 ░░░░░░░░░░░░░░            ░░░░░░░░░░░░░░░          I got a section for your luggage   ]],
+-- [[                   ░░░░░░░░░░░              ░░░░░░░░░░░░░           Bring some fiction and a nightlight  ]],
+-- [[                      ░░░░░░░░              ░░░░░░░░░░░            Record player and your top five   ]],
+-- [[                    ░░░░░░░░░░░             ░░░░░░░               Where we goin'? We should get lost    ]],
+-- [[                 ░░░░░░░░░░░░░░░          ░░░░░░░░░░               No more questions, let the wharf talk,   ]],
+-- [[               ░░░░░░░░░░░░░░░░░░░░     ░░░░░░░░░░░░░░                ]],
+-- [[              ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░              ]],
+-- [[             ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░             ]],
+-- [[            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░            ]],
+-- [[           ░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░░░░░░░░░░░░░            ]],
+-- [[            ░░░░░░░░░░░░░░░░░░░░       ░░░░░░░░░░░░░░░░░░░            ]],
+-- [[             ░░░░░░░░░░░░░░░░░            ░░░░░░░░░░░░░░░             ]],
+-- [[              ░░░░░░░░░░░░░░                ░░░░░░░░░░░               ]],
+-- [[                 ░░░░░░░                                              ]],
+-- }

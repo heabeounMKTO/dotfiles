@@ -10,6 +10,7 @@ lvim.plugins={
   {'letorbi/vim-colors-modern-borland', name="borland"},
   {'nightsense/strawberry', name="strawberry"},
   {'mellow-theme/mellow.nvim', name="mellow"},
+{'mattia72/vim-delphi'},
   -- {'edluffy/hologram.nvim',
   --   config =  require('hologram').setup{auto_display = true
   --     -- WIP automatic markdown image display, may be prone to breaking

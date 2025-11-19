@@ -310,6 +310,15 @@ vim.opt.number = true
 vim.opt.wrap = true
 vim.g.mellow_italic_functions = true
 vim.g.mellow_bold_functions = true
+
+-- formatiing
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup {
+  { command = "clang-format", filetypes = { "c", "cpp", "h", "hpp" } },
+}
+lvim.format_on_save.enabled = true
+lvim.format_on_save.pattern = { "*.c", "*.cpp", "*.h" , "*.hpp"}
+
 -- vim.g.mellow_bold_functions = true
 -- lvim.colorscheme = "mellow"
 --

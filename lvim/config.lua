@@ -7,42 +7,47 @@
 
 lvim.plugins={
   { "rose-pine/neovim", name = "rose-pine" },
-  {
-  "sphamba/smear-cursor.nvim", opts = {
-    -- Smear cursor when switching buffers or windows.
-    smear_between_buffers = true,
+--   {
+--   "chentoast/marks.nvim",
+--   event = "VeryLazy",
+--   opts = {},
+-- },
+  -- {
+  -- "sphamba/smear-cursor.nvim", opts = {
+  --   -- Smear cursor when switching buffers or windows.
+  --   smear_between_buffers = true,
 
-    -- Smear cursor when moving within line or to neighbor lines.
-    -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
-    smear_between_neighbor_lines = true,
+  --   -- Smear cursor when moving within line or to neighbor lines.
+  --   -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
+  --   smear_between_neighbor_lines = true,
 
-    -- Draw the smear in buffer space instead of screen space when scrolling
-    scroll_buffer_space = true,
+  --   -- Draw the smear in buffer space instead of screen space when scrolling
+  --   scroll_buffer_space = true,
 
-    -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-    -- Smears and particles will look a lot less blocky.
-    legacy_computing_symbols_support = true,
+  --   -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+  --   -- Smears and particles will look a lot less blocky.
+  --   legacy_computing_symbols_support = true,
 
-   cursor_color = "#ff4000",
-   particles_enabled = true,
-   stiffness = 0.5,
-   trailing_stiffness = 0.2,
-   trailing_exponent = 5,
-   damping = 0.6,
-   gradient_exponent = 0,
-   gamma = 1,
-   never_draw_over_target = true, -- if you want to actually see under the cursor
-   hide_target_hack = true,       -- same
-   particle_spread = 1,
-   particles_per_second = 500,
-   particles_per_length = 50,
-   particle_max_lifetime = 800,
-   particle_max_initial_velocity = 20,
-   particle_velocity_from_cursor = 0.5,
-   particle_damping = 0.15,
-   particle_gravity = -50,
-   min_distance_emit_particles = 0,
-    }}, 
+  --  cursor_color = "#ff4000",
+  --  particles_enabled = true,
+  --  stiffness = 0.5,
+  --  trailing_stiffness = 0.2,
+  --  trailing_exponent = 5,
+  --  damping = 0.6,
+  --  gradient_exponent = 0,
+  --  gamma = 1,
+  --  never_draw_over_target = true, -- if you want to actually see under the cursor
+  --  hide_target_hack = true,       -- same
+  --  particle_spread = 1,
+  --  particles_per_second = 500,
+  --  particles_per_length = 50,
+  --  particle_max_lifetime = 800,
+  --  particle_max_initial_velocity = 20,
+  --  particle_velocity_from_cursor = 0.5,
+  --  particle_damping = 0.15,
+  --  particle_gravity = -50,
+  --  min_distance_emit_particles = 0,
+  --   }}, 
   {'letorbi/vim-colors-modern-borland', name="borland"},
   {'nightsense/strawberry', name="strawberry"},
   {'mellow-theme/mellow.nvim', name="mellow"},
@@ -355,6 +360,42 @@ formatters.setup {
 }
 lvim.format_on_save.enabled = true
 lvim.format_on_save.pattern = { "*.c", "*.cpp", "*.h" , "*.hpp"}
+-- require'marks'.setup {
+--   -- whether to map keybinds or not. default true
+--   default_mappings = true,
+--   -- which builtin marks to show. default {}
+--   builtin_marks = { ".", "<", ">", "^" },
+--   -- whether movements cycle back to the beginning/end of buffer. default true
+--   cyclic = true,
+--   -- whether the shada file is updated after modifying uppercase marks. default false
+--   force_write_shada = false,
+--   -- how often (in ms) to redraw signs/recompute mark positions. 
+--   -- higher values will have better performance but may cause visual lag, 
+--   -- while lower values may cause performance penalties. default 150.
+--   refresh_interval = 250,
+--   -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+--   -- marks, and bookmarks.
+--   -- can be either a table with all/none of the keys, or a single number, in which case
+--   -- the priority applies to all marks.
+--   -- default 10.
+--   sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+--   -- disables mark tracking for specific filetypes. default {}
+--   excluded_filetypes = {},
+--   -- disables mark tracking for specific buftypes. default {}
+--   excluded_buftypes = {},
+--   -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+--   -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+--   -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+--   -- default virt_text is "".
+--   bookmark_0 = {
+--     sign = "⚑",
+--     virt_text = "hello world",
+--     -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
+--     -- defaults to false.
+--     annotate = false,
+--   },
+--   mappings = {}
+-- }
 -- vim.g.mellow_bold_functions = true
 -- lvim.colorscheme = "mellow"
 --
